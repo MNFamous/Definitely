@@ -1,0 +1,16 @@
+{
+  "name": "sedatbot",
+  "version": "1.0.0",
+  "description": "Berk n niyazi's sexybot",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MastessDev",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.2.0",
+    "dotenv": "^16.0.2",
+    "mongoose": "^6.5.3"
+  }
+}
