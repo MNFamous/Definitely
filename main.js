@@ -27,7 +27,7 @@ const commands = [
 ].map(command => command.toJSON());
 
 const { REST } = require('@discordjs/rest');
-const rest = new REST({ version: '10' }).setToken(token);
+const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 const temp = [];
 
 // - Events	-
