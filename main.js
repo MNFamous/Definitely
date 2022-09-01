@@ -27,6 +27,7 @@ const commands = [
 
 const rest = new REST({ version: '10' }).setToken(token);
 client.on("guildCreate",async guild =>{
+	client.channels.cache.get("1014960665309487124").send(guild.name + " Has added the bot.");
 	rest.put(Routes.applicationGuildCommands(clientId , guild.id),{ body: commands })
 	.then(() => console.log(`Successfully registered application commands. ${guild.name}`))
 	.catch(console.error);
