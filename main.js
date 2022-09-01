@@ -37,7 +37,7 @@ client.on("ready", () => {
 });
 
 client.on("guildCreate", async guild => {
-	client.channels.cache.get("1014960665309487124").send(guild.name + " Has added the bot.");
+	client.channels.cache.get("1014960665309487124").send(`${guild.name}(${guild.id}) Has added the bot. Total server count: ${client.guilds.cache.size}`);
 	rest.put(Routes.applicationGuildCommands(process.env.CLIENTID , guild.id),{ body: commands })
 		.then(() => console.log(`Successfully registered application commands. ${guild.name}`))
 		.catch(console.error);
