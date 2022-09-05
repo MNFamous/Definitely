@@ -22,8 +22,8 @@ const client = new Client({
 const commands = [
 	new SlashCommandBuilder().setName('ping').setDescription('What?'),
 	new SlashCommandBuilder().setName('user').setDescription('Replies with user info!').addBooleanOption(option => option.setName('sexy').setDescription('sexy or not?')),
-	new SlashCommandBuilder().setName('connect').setDescription('Enables Cock Dock'),
-	new SlashCommandBuilder().setName('disconnect').setDescription('Enables Cock Dock')
+	new SlashCommandBuilder().setName('connect').setDescription('Adds the bot to connection queue.'),
+	new SlashCommandBuilder().setName('disconnect').setDescription('Disconnects the bot from connection.')
 ].map(command => command.toJSON());
 
 const { REST } = require('@discordjs/rest');
@@ -41,6 +41,23 @@ client.on("guildCreate", async guild => {
 	rest.put(Routes.applicationGuildCommands(process.env.CLIENTID , guild.id),{ body: commands })
 		.then(() => console.log(`Successfully registered application commands. ${guild.name}`))
 		.catch(console.error);
+});
+
+client.on("guildDelete", async guild => {
+	client.channels.cache.get("1014960665309487124").send(`${guild.name}(${guild.id}) Has removed the bot. Total server count: ${client.guilds.cache.size}`);
+	Connections.findOne({guildId:guild.id}, async (error,dbguild) => {
+		if (error) return console.log(error);
+		if (dbguild) {
+			dbguild.remove().then(() => {
+				Connections.findOne({ guildId: client.channels.cache.get(dbguild.connectionChannel).guild.id }, (error,dbguild2) => {
+					if (error) return console.log(error);
+					dbguild2.remove().then(() => {
+						client.channels.cache.get(dbguild.connectionChannel).send('Bot is disconnected by other channel. Please type "/connect".');
+					});
+				});	
+			});
+		}
+	});
 });
 
 client.on("messageCreate", async message => {
@@ -72,7 +89,7 @@ client.on('interactionCreate', async interaction => {
 				if (temp.length < 2) {
 					if (temp.length == 0) {
 						temp.push([interaction.guild.id,interaction.channelId]);
-						interaction.reply('Bot is connected.')
+						interaction.reply('Channel joined to queue.')
 					} else if(temp[0][0] == interaction.guild.id) {
 						return interaction.reply("Server already in a queue.");
 					} else {
@@ -106,7 +123,7 @@ client.on('interactionCreate', async interaction => {
 	} else if (commandName === 'disconnect') {
 		Connections.findOne({guildId:interaction.guild.id}, async (error,guild) => {
 			if (error) return console.log(error);
-			if (!guild) return interaction.reply("You have to connect first. Bitch!");
+			if (!guild) return interaction.reply("You have to connect first.");
 			if (guild) {
 				guild.remove().then(() => {
 					Connections.findOne({ guildId: client.channels.cache.get(guild.connectionChannel).guild.id }, (error,guild2) => {
