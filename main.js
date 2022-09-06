@@ -61,7 +61,7 @@ client.on("guildDelete", async guild => {
 });
 
 client.on("messageCreate", async message => {
-	if(message.member.user.bot || message.content == "") return;
+	if(message.user.bot || message.content == "" || !message.guild) return;
 	Connections.findOne({ guildId:message.guild.id }, (error, guild) => {
 		if (error) return console.log("An error has occurred, " + error);
 		if (!guild) return;
@@ -103,11 +103,13 @@ client.on('interactionCreate', async interaction => {
 							var connect = new Connections({
 								guildId: temp[0][0],
 								guildChannel: temp[0][1],
+								connectionGuildId: temp[1][0],
 								connectionChannel: temp[1][1]
 							});
 							var connect2 = new Connections({
 								guildId: temp[1][0],
 								guildChannel: temp[1][1],
+								connectionGuildId: temp[1][0],
 								connectionChannel: temp[0][1]
 							});
 							connect.save();
