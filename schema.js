@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const guildSchema = new mongoose.Schema({
   guildId: String,
   guildChannel: String,
+  connectionGuildId: String,
   connectionChannel: String
 });
 
