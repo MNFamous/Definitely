@@ -61,7 +61,7 @@ client.on("guildDelete", async guild => {
 });
 
 client.on("messageCreate", async message => {
-	if(message.user.bot || message.content == "" || !message.guild) return;
+	if(message.author.bot || message.content == "" || !message.guild) return;
 	Connections.findOne({ guildId:message.guild.id }, (error, guild) => {
 		if (error) return console.log("An error has occurred, " + error);
 		if (!guild) return;
