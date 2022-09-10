@@ -114,7 +114,7 @@ client.on('interactionCreate', async interaction => {
 							});
 							connect.save();
 							connect2.save();
-							client.channels.cache.get(temp[0][1]).send('Server successfully connected an another channel!channel');
+							client.channels.cache.get(temp[0][1]).send('Server successfully connected an another channel!');
 							temp.length = 0;
 							await interaction.reply("Server successfully connected an another channel!");
 						} else if (guild) return;
