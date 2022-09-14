@@ -52,6 +52,5 @@ module.exports = {
 			}
 			if (guild) interaction.reply("You're already connected.")
 		})
-		})
     }
 }
