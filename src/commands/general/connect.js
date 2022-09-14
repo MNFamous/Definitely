@@ -14,11 +14,11 @@ module.exports = {
 					console.log("client.temp:" + client.temp.length);
 					if(client.temp.length==0){
 					client.temp.push([interaction.guild.id,interaction.channelId]);
-					console.log("first client.temp")
-					interaction.reply('Bot is connected.')}
+					console.log(`first ${client.temp}`)
+					interaction.reply(`Bot is joined to connection queue.`)}
 					else if(client.temp[0][0] == interaction.guild.id){interaction.reply("Server already in a queue.");return;}
 					else{client.temp.push([interaction.guild.id,interaction.channelId]);
-					console.log("second client.temp")}
+					console.log(`second ${client.temp}`)}
 					console.log("array added");}	
 					if(client.temp.length == 2)
 					{
