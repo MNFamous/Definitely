@@ -14,7 +14,6 @@ module.exports = {
 			if(guild)
 			{
 				guild.remove().then(() => {
-					console.log(client.channels.cache.get(guild.connectionChannel).guild.id)
 					Connections.findOne({guildId:client.channels.cache.get(guild.connectionChannel).guild.id},(error,guild2) =>{
 						if(error)console.log(error);
 						guild2.remove().then(() => {
