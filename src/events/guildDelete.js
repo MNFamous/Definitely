@@ -1,6 +1,6 @@
 const Connections = require("../schemas/connections.js")
 module.exports = (client, guild) => {
-	client.channels.cache.get("1014960665309487124").send(`${guild.name}(${guild.id}) Has removed the  BETA bot. Total server count: ${client.guilds.cache.size}`);
+	client.channels.cache.get("1014960665309487124").send(`${guild.name}(${guild.id}) Has removed the bot. Total server count: ${client.guilds.cache.size}`);
 	Connections.findOne({guildId:guild.id}, async (error,dbguild) => {
 		if (error) return console.log(error);
 		if (dbguild) {
