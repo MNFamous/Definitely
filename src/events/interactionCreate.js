@@ -11,11 +11,11 @@ module.exports = (client, interaction) => {
         return interaction.reply({ content: 'This command can only be used in DMs!', ephemeral: true });
     
     //Cooldown
-    if (command.cooldown) {
+    if (command.options.cooldown) {
         if (!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Collection());
         const now = Date.now();
         const timestamps = client.cooldowns.get(command.name);
-        const cooldownAmount = (command.cooldown ?? 3) * 1000;
+        const cooldownAmount = (command.options.cooldown ?? 3) * 1000;
         if (timestamps.has(interaction.user.id)) {
             const expirationTime = timestamps.get(interaction.user.id) + cooldownAmount;
             if (now < expirationTime) {
