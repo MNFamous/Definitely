@@ -22,6 +22,7 @@ const client = new Client({
 
 client.events = new Collection();
 client.commands = new Collection();
+client.cooldowns = new Collection();
 client.ready = false;
 client.temp = [];
 client.developers = process.env.DEV.split(",").map(id => id.trim());
