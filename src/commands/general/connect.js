@@ -5,6 +5,9 @@ module.exports = {
     data: new Builder()
         .setName("connect")
         .setDescription("Connects current channel to another servers channel."),
+	options: {
+		cooldown: 5
+	},
     async execute(client, interaction) {
 		if (!interaction.channel.permissionsFor(client.user.id).has("SendMessages")) return interaction.reply("I do not have permission to send messages in this channel, to connnect please give me Send Messages permission.")
         Connections.findOne({ guildId:interaction.guild.id }, (error, guild) => {
