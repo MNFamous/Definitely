@@ -1,3 +1,4 @@
+const { Collection } = require("discord.js")
 module.exports = (client, interaction) => {
     if (!client.ready || !interaction.isCommand()) return;
 
