@@ -46,6 +46,7 @@ module.exports = {
 							connect.save();
 							connect2.save();
 							console.log("Connections added");
+							console.log(client.temp[0][1]);
 							client.channels.cache.get(client.temp[0][1]).send('Server successfully connected an another channel!');
 							client.temp.length = 0;
 							await interaction.reply("Server successfully connected an another channel!");
