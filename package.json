@@ -12,5 +12,23 @@
     "discord.js": "^14.2.0",
     "dotenv": "^16.0.2",
     "mongoose": "^6.5.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MNFamous/Definitely.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MNFamous/Definitely/issues"
+  },
+  "homepage": "https://github.com/MNFamous/Definitely#readme",
+"devDependencies": {},
+"repository": {
+  "type": "git",
+  "url": "git+https://github.com/MNFamous/Definitely.git"
+},
+"bugs": {
+  "url": "https://github.com/MNFamous/Definitely/issues"
+},
+"homepage": "https://github.com/MNFamous/Definitely#readme"
 }

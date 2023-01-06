@@ -6,6 +6,7 @@ console.logDate = (str) => {
 }
 
 const mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
 (async () => {
 	await mongoose.connect(process.env.MONGODB, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
 	  console.log("Mongoose - Connected to database successfully.");
