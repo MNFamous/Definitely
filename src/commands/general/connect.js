@@ -9,6 +9,7 @@ module.exports = {
 		cooldown: 5
 	},
     async execute(client, interaction) {
+		console.log(interaction.type);
 		if (!interaction.channel.permissionsFor(client.user.id).has("SendMessages")) return interaction.reply("I do not have permission to send messages in this channel, to connnect please give me Send Messages permission.")
         Connections.findOne({ guildId:interaction.guild.id }, (error, guild) => {
 			if (error) console.log(error);
