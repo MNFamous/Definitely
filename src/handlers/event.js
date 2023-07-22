@@ -9,5 +9,5 @@ module.exports = (client) => {
         client.events.set(eventName, event);
         client.on(eventName, (...args) => client.events.get(eventName)(client, ...args));
     }
-    console.logDate("Registering Events Complete.");
+    console.logDate("Registering Events Completed.");
 }

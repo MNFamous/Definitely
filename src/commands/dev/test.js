@@ -5,6 +5,6 @@ module.exports = {
         .setName("test")
         .setDescription("Test command."),
     async execute(client, interaction) {
-        interaction.reply("Testing!");
+        interaction.reply("Testing!!");
     }
 }

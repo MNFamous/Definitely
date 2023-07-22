@@ -4,7 +4,7 @@ const fs = require('fs');
 module.exports = {
     data: new Builder()
         .setName("refresh")
-        .setDescription("Refreshes a command.")
+        .setDescription("Refreshes the commands.")
         .addStringOption(option => 
             option.setName("command")
                 .setDescription("The command to refresh.")

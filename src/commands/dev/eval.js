@@ -5,7 +5,7 @@ const { inspect } = require("util");
 module.exports = {
     data: new Builder()
     .setName('eval')
-    .setDescription('Evaluate some piece of code.')
+    .setDescription('Evaluate a piece of code.')
     .addStringOption(option => 
         option.setName('code')
             .setDescription('The code to evaluate.')

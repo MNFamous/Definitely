@@ -8,7 +8,7 @@ module.exports = (client, guild) => {
 				Connections.findOne({ guildId: client.channels.cache.get(dbguild.connectionChannel).guild.id }, (error,dbguild2) => {
 					if (error) return console.log(error);
 					dbguild2.remove().then(() => {
-						client.channels.cache.get(dbguild.connectionChannel).send('Bot is disconnected by other channel. Please type "/connect".');
+						client.channels.cache.get(dbguild.connectionChannel).send('Bot is disconnected by other channel. Please type "/connect" for new connection.');
 					});
 				});	
 			});

@@ -9,7 +9,7 @@ module.exports = (client, interaction) => {
     if (command.options?.dev && !client.developers.includes(interaction.user.id)) 
         return interaction.reply({ content: 'You are not a bot developer!', ephemeral: true });
     if (command.options?.dmsOnly && interaction.channel.type !== 'DM') 
-        return interaction.reply({ content: 'This command can only be used in DMs!', ephemeral: true });
+        return interaction.reply({ content: 'This command can only be used in DM`s!', ephemeral: true });
     
     //Cooldown
     if (command.options.cooldown) {

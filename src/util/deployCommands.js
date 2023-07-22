@@ -32,7 +32,7 @@ module.exports = async (client) => {
         .filter(c => !devCommands.some(d => d.name === c.name));
 
     try {
-        console.logDate("Deploying the application commands.");
+        console.logDate("Deploying the application commands...");
 
         if (commands.length > 0) {
             deployCount = await addGuildCommands(client, commands);

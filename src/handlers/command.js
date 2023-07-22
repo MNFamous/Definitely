@@ -12,7 +12,7 @@ module.exports = (client) => {
             if (command.data) {
                 client.commands.set(commandName, command);
             } else {
-                console.logDate(`Warning - Command ${commandName} is missing data therefore cannot be registered.`);
+                console.logDate(`Warning! - Command ${commandName} is missing data therefore cannot be registered.`);
             }
             
         }
@@ -23,8 +23,8 @@ module.exports = (client) => {
         if (command.data) {
             client.commands.set(commandName, command);
         } else {
-            console.logDate(`Warning - Command ${commandName} is missing data therefore cannot be registered.`);
+            console.logDate(`Warning! - Command ${commandName} is missing data therefore cannot be registered.`);
         }
     }
-    console.logDate("Registering Commands Complete.");
+    console.logDate("Registering Commands Completed Successfully.");
 }
